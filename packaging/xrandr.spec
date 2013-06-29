@@ -6,6 +6,7 @@ License:        MIT
 Group:          Graphics/X Window System
 Url:            http://xorg.freedesktop.org/
 Source0:        http://xorg.freedesktop.org/releases/individual/app/%{name}-%{version}.tar.bz2
+Source1001: 	xrandr.manifest
 BuildRequires:  pkg-config
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xorg-macros) >= 1.8
@@ -19,6 +20,7 @@ the outputs for a screen. It can also set the screen size.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure
@@ -29,6 +31,7 @@ make %{?_smp_mflags}
 rm %{buildroot}%{_bindir}/xkeystone
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %license COPYING
 %{_bindir}/xrandr
