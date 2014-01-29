@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           xrandr
 Version:        1.4.0
 Release:        0
@@ -13,6 +15,10 @@ BuildRequires:  pkgconfig(xorg-macros) >= 1.8
 BuildRequires:  pkgconfig(xproto) >= 7.0.17
 BuildRequires:  pkgconfig(xrandr) >= 1.3
 BuildRequires:  pkgconfig(xrender)
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 Xrandr is used to set the size, orientation and/or reflection of
