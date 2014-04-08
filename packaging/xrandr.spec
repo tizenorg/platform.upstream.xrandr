@@ -1,7 +1,7 @@
 %bcond_with x
 
 Name:           xrandr
-Version:        1.4.0
+Version:        1.4.2
 Release:        0
 Summary:        Primitive command line interface to RandR extension
 License:        MIT
@@ -29,7 +29,7 @@ the outputs for a screen. It can also set the screen size.
 cp %{SOURCE1001} .
 
 %build
-%configure
+%autogen
 make %{?_smp_mflags}
 
 %install
